@@ -6,6 +6,7 @@ import "./Product.css";
 const Product = (props) => {
   // console.log(props);
   const { img, name, seller, price, stock } = props.product;
+
   return (
     <div className="product">
       <div>
@@ -19,6 +20,7 @@ const Product = (props) => {
         <p>
           <small>$ {price}</small>
         </p>
+
         <p>
           <small>Only {stock} left is stock</small>
         </p>
