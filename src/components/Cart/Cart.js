@@ -1,5 +1,6 @@
 import React from "react";
-import cameras from "../../fakeData/camera";
+
+// import cameras from "../../fakeData/camera";
 import "./Cart.css";
 
 const Cart = (props) => {
@@ -8,8 +9,9 @@ const Cart = (props) => {
   let total = 0;
   for (let i = 0; i < cart.length; i++) {
     const product = cart[i];
-    total = total + product.price;
+    total = total + product.price * product.quantity;
   }
+
   let shipping = 0;
 
   if (total > 45) {
@@ -29,8 +31,8 @@ const Cart = (props) => {
       {/* <p>
         <small>Name: {}</small>
       </p> */}
-      <h5>items Ordered : {cart.length}</h5>
-
+      <h6>items Ordered : {cart.length}</h6>
+      <h6>Product Price : {total}</h6>
       <p>
         <small>Shipping Cost: $ {shipping}</small>
       </p>
@@ -38,6 +40,8 @@ const Cart = (props) => {
         <small>Tax + Vat : $ {tax}</small>
       </p>
       <p>Total Price : $ {grandTotal}</p>
+      <br />
+      {props.children}
     </div>
   );
 };
